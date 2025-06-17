@@ -32,7 +32,7 @@ This is a responsive React-based web application that allows users to browse, se
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/product-comparison.git
+   git clone https://github.com/piyushukla/product-comparison-app
 
 ## Install dependencies:
 
