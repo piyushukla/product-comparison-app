@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* index.css or App.css */
+
+body.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark .product-card,
+body.dark .compare-item,
+body.dark .summary-table,
+body.dark table,
+body.dark button {
+  background-color: #1e1e1e;
+  color: white;
+  border-color: #333;
+}
+
+body.dark .cart-btn,
+body.dark .theme-btn,
+body.dark .back-btn {
+  background-color: #333;
+  color: white;
+}
