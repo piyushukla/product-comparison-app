@@ -242,3 +242,21 @@ body {
     min-width: 600px; /* ya jitni needed ho */
     border-collapse: collapse;
   }
+
+  tr th {
+    color: black;
+  }
+
+  .clear-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .clear-btn:hover {
+    background-color: #c82333;
+  }
+  

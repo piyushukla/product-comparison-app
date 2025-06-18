@@ -18,12 +18,28 @@ const ComparePage = () => {
     }
   };
 
+  useEffect(()=>{
+
+    if (compareItems.length === 0) {
+        navigate("/");
+      }
+  },[compareItems])
+
   return (
     <div>
       <button className="back-btn" onClick={() => navigate("/")}>
         ← Back
       </button>
       <h2>Comparison View</h2>
+      <button
+        className="clear-btn"
+        onClick={() => {
+          localStorage.removeItem("compareProducts");
+          setCompareItems([])
+        }}
+      >
+        Clear All
+      </button>
 
       {compareItems.length === 0 ? (
         <p>No products selected for comparison.</p>
@@ -48,12 +64,12 @@ const ComparePage = () => {
                   <li>{product.stock} in stock</li>
                 </ul>
                 <div className="btn-container">
-                <button
-                  className="cart-btn"
-                  onClick={() => removeItem(product.id)}
-                >
-                  Remove
-                </button>
+                  <button
+                    className="cart-btn"
+                    onClick={() => removeItem(product.id)}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             ))}
@@ -62,30 +78,30 @@ const ComparePage = () => {
           {/* Comparison Table Below */}
           <h3>Summary Table</h3>
           <div className="comparison-table-wrapper">
-          <table className="summary-table comparison-table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Brand</th>
-                <th>Price</th>
-                <th>Rating</th>
-                <th>Stock</th>
-                <th>Discount %</th>
-              </tr>
-            </thead>
-            <tbody>
-              {compareItems.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.title}</td>
-                  <td>{item.brand}</td>
-                  <td>${item.price}</td>
-                  <td>{item.rating}</td>
-                  <td>{item.stock}</td>
-                  <td>{item.discountPercentage}%</td>
+            <table className="summary-table comparison-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Brand</th>
+                  <th>Price</th>
+                  <th>Rating</th>
+                  <th>Stock</th>
+                  <th>Discount %</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {compareItems.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.title}</td>
+                    <td>{item.brand}</td>
+                    <td>${item.price}</td>
+                    <td>{item.rating}</td>
+                    <td>{item.stock}</td>
+                    <td>{item.discountPercentage}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </>
       )}
